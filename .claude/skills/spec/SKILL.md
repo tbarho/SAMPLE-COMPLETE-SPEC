@@ -58,7 +58,7 @@ Repeat **for each persona**, expanding every behavior from that persona's doc-2 
 
 ## Deliverable: single-file HTML artifact
 Render the spec as one self-contained `.html` (inline CSS, no external fonts/CDNs — keep it offline). Order: title + elevator pitch + scenario(s) → a **Wireframes** section → Initial Spec → Detailed Spec.
-- **Monochrome wireframes**: one CSS phone frame per `SCREEN:`, grayscale only — device border (no shadow), status bar, `X`-cross boxes for images, dashed note boxes for logic/calcs/cadence, grouped by flow with `flex-wrap`. No color, no emoji.
+- **Monochrome wireframes**: one CSS phone frame per `SCREEN:`, grayscale only — device border (no shadow), status bar, `X`-cross boxes for images, dashed note boxes for logic/calcs/cadence. No color, no emoji. Lay each flow out as its **own horizontal, scroll-snapping row** (screens left-to-right with `→` connectors, `overflow-x:auto`, `scroll-snap-type:x`); flows stack vertically. Horizontal scrolling reads as a flow far better than vertical stacking.
 - **Style**: white bg, system serif headings + system sans body + mono for code (real hierarchy). Obey [DESIGN.md](DESIGN.md) — especially contrast ≥4.5:1, no cards/nested cards, no side-stripe borders, no eyebrow-on-every-section, display letter-spacing ≥ `-0.04em`, line length 65–75ch.
 - **Publish**: drop it to DropFast (public) via the dropfast skill and return the URL; `PUT` the same slug in place on later edits. Reference output: https://dropfast.dev/s/rg9centz/
 
