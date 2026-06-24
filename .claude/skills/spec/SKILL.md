@@ -34,7 +34,7 @@ One self-contained `.html` (inline CSS, no external fonts/CDNs). Order: title + 
 - **Publish**: drop to DropFast (public) via the dropfast skill; return the URL; `PUT` the same slug in place on later edits. Reference: https://dropfast.dev/s/rg9centz/
 
 ## Detailed-spec phrasing (match the artifact exactly)
-Nested markdown bullets, three levels (persona → behavior → screen/requirement). Use the artifact's literal voice:
+Nested markdown bullets: behavior → `SCREEN:` → that screen's requirements. Each screen's details indent one level under their `SCREEN:` parent. Use the artifact's literal voice:
 - `SCREEN: <Name>` introduces a screen
 - `Should require <field>` · `Should show <thing>` · `Should have "<label>" button`
 - `Clicking "<X>" routes to "<Screen>"` · `Routes to "<Screen>"`

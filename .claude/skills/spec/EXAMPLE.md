@@ -40,7 +40,7 @@ These behaviors drive the wireframes (step 3) and are the contract for fanning o
 
 ## 3 — Detailed persona spec (from the wires)
 
-Phrased identically to the source PDF; only the bullet glyphs differ. Three levels: persona → behavior → screen/requirement.
+Phrased identically to the source PDF; only the bullet glyphs differ. Each screen's details nest one level under their `SCREEN:` parent: persona → behavior → `SCREEN:` → that screen's requirements.
 
 **As a `WORKOUT APP USER`, I need to:**
 
@@ -48,59 +48,59 @@ Phrased identically to the source PDF; only the bullet glyphs differ. Three leve
 - Download the app from Google Play
 - Get Started
   - SCREEN: Get Started Screen
-  - Single, friendly button
+    - Single, friendly button
 - Create an account
   - SCREEN: Program Details Screen
-  - Should require name
-  - Should require email
-  - Should require start date
-  - Should require weight
+    - Should require name
+    - Should require email
+    - Should require start date
+    - Should require weight
 - See my next workout
   - SCREEN: Home Screen
 - Sync to my calendar
   - SCREEN: Home Screen
 - Start a workout
   - SCREEN: Home Screen
-  - Clicking "Work Out" routes to "Workout Home Screen"
+    - Clicking "Work Out" routes to "Workout Home Screen"
 - Perform a workout
   - SCREEN: Workout Home Screen
-  - Should show workout title (A or B)
-  - Should allow Machine & Freeweight Options
-  - Workout A
-  - Machine - Pull downs
-  - Machine - Shoulder press
-  - Freeweight - Yates Row
-  - Freeweight - Overhead press
-  - Clicking an exercise routes to "Perform Workout Screen"
+    - Should show workout title (A or B)
+    - Should allow Machine & Freeweight Options
+    - Workout A
+    - Machine - Pull downs
+    - Machine - Shoulder press
+    - Freeweight - Yates Row
+    - Freeweight - Overhead press
+    - Clicking an exercise routes to "Perform Workout Screen"
   - SCREEN: Perform workout
-  - Should show exercise title & current weight to attempt
-  - Should show lifting rules & cadence
-  - Should require # of reps
-  - Should show "Done" button
-  - If I get 6 or less
-  - Routes to "Stop Screen"
-  - else
-  - Routes to "Perform Workout Screen"
-  - Should show cancel button
-  - Routes to "Home Screen"
+    - Should show exercise title & current weight to attempt
+    - Should show lifting rules & cadence
+    - Should require # of reps
+    - Should show "Done" button
+    - If I get 6 or less
+    - Routes to "Stop Screen"
+    - else
+    - Routes to "Perform Workout Screen"
+    - Should show cancel button
+    - Routes to "Home Screen"
   - SCREEN: Stop screen "The purpose of this screen is stopping the workout and adding another day of rest"
-  - Should show the stop alert message
-  - Should have "When should I workout again" button
-  - Routes to "Home Screen" with updated workout date
+    - Should show the stop alert message
+    - Should have "When should I workout again" button
+    - Routes to "Home Screen" with updated workout date
 - Find my starting weight
   - SCREEN: Weight Selection Screen
-  - Should show title
-  - Should show "Use a weight you can do 5 times"
-  - Should require lbs completed
-  - Should show Next button
-  - Routes to "Weight Performance Screen"
+    - Should show title
+    - Should show "Use a weight you can do 5 times"
+    - Should require lbs completed
+    - Should show Next button
+    - Routes to "Weight Performance Screen"
   - SCREEN: Weight Performance Screen
-  - Should tell me how to lift (fast up, 2 seconds down)
-  - Should have "I got 5" button
-  - Routes to "Weight Performance Screen" with increasing weight
-  - Should have "I didn't get 5" button
-  - Should route to "Weight Verification Screen" with 70% of last successful weight
+    - Should tell me how to lift (fast up, 2 seconds down)
+    - Should have "I got 5" button
+    - Routes to "Weight Performance Screen" with increasing weight
+    - Should have "I didn't get 5" button
+    - Should route to "Weight Verification Screen" with 70% of last successful weight
   - SCREEN: Weight Verification Screen
-  - Should show starting weight
-  - Should have "Ok" button
-  - Routes to "Perform Workout Screen" for that exercise
+    - Should show starting weight
+    - Should have "Ok" button
+    - Routes to "Perform Workout Screen" for that exercise
