@@ -1,81 +1,49 @@
 ---
 name: spec
-description: Generate a complete, engineer-ready persona spec for any app idea, modeled on the layered waterfall-alternative spec in this repo (elevator pitch → high-level user stories → detailed per-screen behaviors). Use when the user says /spec, asks to spec out an app, write a persona spec, turn an app idea into requirements, or produce screen-by-screen behavior docs.
+description: Generate engineer-ready wireframes + a persona spec for any app idea by running a short creative loop (define personas & problem → initial spec → wireframe SCREENS → detailed per-screen spec), delivered as one self-contained monochrome-wireframe HTML page published to DropFast. Use when the user says /spec, asks to spec out an app, write a persona spec, design app wireframes, or turn an app idea into screen-by-screen requirements.
 ---
 
 # /spec — Persona Spec Generator
 
-Turn a one-line app idea into the same layered, persona-driven spec format demonstrated in this repo's teaching artifact. The output is detailed enough that nearly any engineer can implement it, without being a rigid waterfall doc.
+Turn an app idea into a cohesive set of **wireframes + a persona spec**, shipped as one self-contained HTML page published to DropFast. Modeled on this repo's teaching artifact. These artifacts are the *output of a creative process* — run the loop below, don't just fill a template.
 
-See [EXAMPLE.md](EXAMPLE.md) for the worked content reference (The Occam's Protocol App). The final deliverable is a single self-contained HTML file (the 3 docs + monochrome wireframes) published publicly to DropFast; all visual styling MUST obey [DESIGN.md](DESIGN.md).
+- Content & phrasing gold standard: [EXAMPLE.md](EXAMPLE.md)
+- Visual rules for the HTML (mandatory): [DESIGN.md](DESIGN.md)
 
-## Inputs
+## The loop
 
-Take the app idea as given. Only ask clarifying questions if a core dimension is missing — cap at 3:
-- Platform(s) (iOS, Android, web, ...)
-- The set of personas (see below) — only if it's genuinely ambiguous who uses the app
-- The one core job the app must nail
+Run in order; iterate **2 ↔ 3 ↔ 4** until the wires and the spec are mutually consistent and minimal.
 
-If the user says "just generate it" or gives enough, make sensible assumptions and note them in an `Assumptions` line rather than blocking.
+**1 — Define the persona(s) & problem.** Derive the complete, distinct set of personas (roles with materially different needs), each with a one-line problem. Never a generic "user".
+- patient portal → `PATIENT`, `PROVIDER` (+`ADMIN`) · football app → `COACH`, `PLAYER`, `PARENT` · single-actor → one (e.g. `WORKOUT APP USER`)
+- Write the elevator pitch and one named scenario per major persona.
 
-## Step 0: Identify the personas (do this first)
+**2 — Write the initial spec.** Per persona: `As a <PERSONA>, I need to:` + a flat list of high-level behaviors (verbs only, no screens yet). Keep it minimal and complete — this is the creative scaffold and the fan-out contract.
 
-Before writing anything, derive the **complete, distinct set of personas (actors/roles)** the app actually requires — not a single generic "user". A persona is a role with materially different needs, permissions, or flows. Think through who creates, consumes, approves, administers, or is acted upon in the app.
+**3 — Design the wires (SCREENS) from the initial spec.** For each behavior, invent the *fewest* screens that satisfy it — creative but minimalist. Name each `SCREEN: <Name>`, reuse screens across behaviors (one Home Screen, etc.), and lay each flow out as a monochrome wireframe row.
 
-Examples of correct persona sets:
-- **Patient portal** → `PATIENT`, `PROVIDER` (and often `ADMIN`/`SCHEDULER`)
-- **Football play app** → `COACH`, `PLAYER`, `PARENT`
-- **Marketplace** → `BUYER`, `SELLER`, `ADMIN`
-- **Food delivery** → `CUSTOMER`, `DRIVER`, `RESTAURANT`
-- **Single-actor app** (e.g. a personal workout tracker) → just `WORKOUT APP USER`
+**4 — Write the detailed spec from the wires.** Walk every SCREEN and state, minimalistly, what it must do: fields, controls, copy, routing, branching, calculations. Every screen in the spec must exist in the wires, and vice-versa.
 
-Rules:
-- Name each persona by its role (UPPERCASE), not "user". Only collapse to one persona if the app truly has one actor.
-- Keep personas distinct and roughly non-overlapping; if two "roles" share all behaviors, merge them.
-- Docs 1–3 below must cover **every** persona in this set.
-
-## Output: 3 layered documents
-
-Always produce all three, in order, in a single response (or as files if asked). Use **clean, properly-nested Markdown** — nested bullet lists with 2-space indents, bold labels for personas/behaviors, and `inline code` for screen names. Mirror [EXAMPLE.md](EXAMPLE.md) exactly. Do not use raw `●`/`○`/`■` glyphs (they don't render as nested lists).
-
-### 1. Overview & Primary User Stories
-- **Elevator pitch**: 1–2 sentences. What it is, who it's for, the platform.
-- **Personas**: a short bullet list naming each persona and its one-line motivation.
-- **Primary User Stories**: one named scenario per major persona, as short narratives in a blockquote (`> **Scenario: <Name> (<PERSONA>)**`). Show the persona's pain → how they find/use the app → the happy-path payoff. End with `*[add more personas/scenarios here]*`.
-
-### 2. Initial Persona Spec (high-level)
-Repeat this block **for each persona** in the set:
-- Bold persona header: `**As a \`<PERSONA>\`, I need to:**`
-- A flat bullet list of that persona's high-level behaviors/jobs (onboard, see X, perform Y...). No screen detail yet — verbs only.
-
-### 3. Detailed Persona Spec (per-screen)
-Repeat **for each persona**, expanding every behavior from that persona's doc-2 block as a nested list. For each:
-- A behavior bullet, then a nested `` `SCREEN: <Screen Name>` `` bullet (or `behavior → \`SCREEN: ...\`` when one-to-one).
-- Sub-bullets for required fields, controls, copy, and rules of that screen.
-- **Routing**: state transitions explicitly — `→ routes to \`<Screen>\``.
-- **Branching**: nest conditional flows — `If <condition> → routes to \`X\`` / `Else → routes to \`Y\``.
-- **Calculations**: spell out any formula in inline code (e.g. `` `start weight = last success × 0.70` ``, round to nearest 5).
+## Fan-out (large apps)
+The initial spec is the contract for parallelism: dispatch one subagent per persona (or per flow) to draft that slice's wires + detailed spec from the shared initial spec, then reconcile — dedupe shared screens, unify naming and routing — into one cohesive doc. Because every slice traces to the same initial spec, the union stays coherent.
 
 ## Deliverable: single-file HTML artifact
-Render the spec as one self-contained `.html` (inline CSS, no external fonts/CDNs — keep it offline). Order: title + elevator pitch + scenario(s) → a **Wireframes** section → Initial Spec → Detailed Spec.
-- **Monochrome wireframes**: one CSS phone frame per `SCREEN:`, grayscale only — device border (no shadow), status bar, `X`-cross boxes for images, dashed note boxes for logic/calcs/cadence. No color, no emoji. Lay each flow out as its **own horizontal, scroll-snapping row** (screens left-to-right with `→` connectors, `overflow-x:auto`, `scroll-snap-type:x`); flows stack vertically. Horizontal scrolling reads as a flow far better than vertical stacking.
-- **Style**: white bg, system serif headings + system sans body + mono for code (real hierarchy). Obey [DESIGN.md](DESIGN.md) — especially contrast ≥4.5:1, no cards/nested cards, no side-stripe borders, no eyebrow-on-every-section, display letter-spacing ≥ `-0.04em`, line length 65–75ch.
-- **Publish**: drop it to DropFast (public) via the dropfast skill and return the URL; `PUT` the same slug in place on later edits. Reference output: https://dropfast.dev/s/rg9centz/
+One self-contained `.html` (inline CSS, no external fonts/CDNs). Order: title + elevator pitch + scenario(s) → **Wireframes** → **Detailed Persona Spec**. The initial spec stays a working scaffold; it is *not* rendered as its own section, because the detailed spec's top level already lists every behavior.
+- **Wireframes**: one grayscale CSS phone per `SCREEN:` (device border, no shadow; status bar; `X`-cross image boxes; dashed note boxes for logic/calcs). Each flow is its **own horizontal scroll-snap row** with `→` connectors; flows stack vertically. No color, no emoji.
+- **Style**: white bg, system serif headings + sans body + mono code. Obey [DESIGN.md](DESIGN.md): contrast ≥4.5:1, no cards/side-stripes/eyebrows, display letter-spacing ≥ `-0.04em`, line length 65–75ch.
+- **Publish**: drop to DropFast (public) via the dropfast skill; return the URL; `PUT` the same slug in place on later edits. Reference: https://dropfast.dev/s/rg9centz/
 
-## Quality bar (mirror the artifact)
-- **Correct personas**: the persona set matches what the app genuinely requires (e.g. patient portal → patient + provider), each named by role, distinct, and all covered in docs 1–3.
-- Persona-driven throughout — every behavior traces to a specific "As a <PERSONA>, I need to".
-- Every behavior maps to at least one `SCREEN:`.
-- Every screen with an action states where it routes.
-- Conditional logic and math are explicit, never implied.
-- "Sensible detail": enough to build, not over-specified. Prefer the app's real edge cases over filler.
-- Name screens consistently — the same screen referenced in routing must match its `SCREEN:` heading exactly.
+## Detailed-spec phrasing (match the artifact exactly)
+Nested markdown bullets, three levels (persona → behavior → screen/requirement). Use the artifact's literal voice:
+- `SCREEN: <Name>` introduces a screen
+- `Should require <field>` · `Should show <thing>` · `Should have "<label>" button`
+- `Clicking "<X>" routes to "<Screen>"` · `Routes to "<Screen>"`
+- branches as sibling lines: `If <cond>` / `Routes to "X"` / `else` / `Routes to "Y"`
+- spell calculations out (e.g. `... with 70% of last successful weight`)
 
-## Checklist before returning
-- [ ] Persona set is correct & app-specific; every persona appears in docs 1, 2, and 3.
-- [ ] All 3 docs present, in order, as clean nested Markdown (renders correctly).
-- [ ] Each high-level behavior expanded into ≥1 screen.
-- [ ] All routes/branches/calcs explicit and screen names consistent.
-- [ ] Assumptions noted if any were made.
-- [ ] Delivered as one self-contained HTML with a monochrome wireframe per screen, published public to DropFast (URL returned).
-- [ ] Passes [DESIGN.md](DESIGN.md): contrast ok, white bg, no cards/side-stripes/eyebrows, real type hierarchy.
+## Checklist
+- [ ] Persona set correct & app-specific; pitch + one scenario per major persona.
+- [ ] Initial spec written, and actually used to derive the wires.
+- [ ] Wires minimal & monochrome, horizontal scroll rows, 1:1 with the detailed spec.
+- [ ] Detailed spec phrased like the artifact, nested markdown bullets, routing/branch/calc explicit, screen names consistent.
+- [ ] One self-contained HTML, published public to DropFast (URL returned), passes [DESIGN.md](DESIGN.md).
