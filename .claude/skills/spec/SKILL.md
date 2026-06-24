@@ -7,7 +7,7 @@ description: Generate a complete, engineer-ready persona spec for any app idea, 
 
 Turn a one-line app idea into the same layered, persona-driven spec format demonstrated in this repo's teaching artifact. The output is detailed enough that nearly any engineer can implement it, without being a rigid waterfall doc.
 
-See [EXAMPLE.md](EXAMPLE.md) for a full worked reference (The Occam's Protocol App).
+See [EXAMPLE.md](EXAMPLE.md) for the worked content reference (The Occam's Protocol App). The final deliverable is a single self-contained HTML file (the 3 docs + monochrome wireframes) published publicly to DropFast; all visual styling MUST obey [DESIGN.md](DESIGN.md).
 
 ## Inputs
 
@@ -56,6 +56,12 @@ Repeat **for each persona**, expanding every behavior from that persona's doc-2 
 - **Branching**: nest conditional flows — `If <condition> → routes to \`X\`` / `Else → routes to \`Y\``.
 - **Calculations**: spell out any formula in inline code (e.g. `` `start weight = last success × 0.70` ``, round to nearest 5).
 
+## Deliverable: single-file HTML artifact
+Render the spec as one self-contained `.html` (inline CSS, no external fonts/CDNs — keep it offline). Order: title + elevator pitch + scenario(s) → a **Wireframes** section → Initial Spec → Detailed Spec.
+- **Monochrome wireframes**: one CSS phone frame per `SCREEN:`, grayscale only — device border (no shadow), status bar, `X`-cross boxes for images, dashed note boxes for logic/calcs/cadence, grouped by flow with `flex-wrap`. No color, no emoji.
+- **Style**: white bg, system serif headings + system sans body + mono for code (real hierarchy). Obey [DESIGN.md](DESIGN.md) — especially contrast ≥4.5:1, no cards/nested cards, no side-stripe borders, no eyebrow-on-every-section, display letter-spacing ≥ `-0.04em`, line length 65–75ch.
+- **Publish**: drop it to DropFast (public) via the dropfast skill and return the URL; `PUT` the same slug in place on later edits. Reference output: https://dropfast.dev/s/rg9centz/
+
 ## Quality bar (mirror the artifact)
 - **Correct personas**: the persona set matches what the app genuinely requires (e.g. patient portal → patient + provider), each named by role, distinct, and all covered in docs 1–3.
 - Persona-driven throughout — every behavior traces to a specific "As a <PERSONA>, I need to".
@@ -71,4 +77,5 @@ Repeat **for each persona**, expanding every behavior from that persona's doc-2 
 - [ ] Each high-level behavior expanded into ≥1 screen.
 - [ ] All routes/branches/calcs explicit and screen names consistent.
 - [ ] Assumptions noted if any were made.
-- [ ] (Optional) Offer to add a wireframe description or screen list next.
+- [ ] Delivered as one self-contained HTML with a monochrome wireframe per screen, published public to DropFast (URL returned).
+- [ ] Passes [DESIGN.md](DESIGN.md): contrast ok, white bg, no cards/side-stripes/eyebrows, real type hierarchy.
