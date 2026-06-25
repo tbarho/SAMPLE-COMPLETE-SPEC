@@ -29,9 +29,10 @@ Initial spec = parallelism contract. Dispatch 1 subagent per persona (or flow) �
 
 ## Deliverable: single-file HTML
 One self-contained `.html` (inline CSS, no external fonts/CDNs). Order: title + pitch + scenario(s) → **Wireframes** → **Detailed Persona Spec**. Initial spec = scaffold, not its own section (detailed top level already lists every behavior).
+- **Write to `/tmp`, never the repo/working dir** — e.g. `/tmp/<app-slug>-spec/index.html`. It's a throwaway upload source; keep it out of the user's project.
 - **Wireframes**: 1 grayscale CSS phone per `SCREEN:` (device border, no shadow; status bar; `X`-cross image boxes; dashed note boxes for logic/calcs). Each flow = its own horizontal scroll-snap row with `→` connectors; flows stack vertically. No color, no emoji.
 - **Style**: white bg, system serif headings + sans body + mono code. Obey [DESIGN.md](DESIGN.md): contrast ≥4.5:1, no cards/side-stripes/eyebrows, display letter-spacing ≥ `-0.04em`, line length 65–75ch.
-- **Publish**: DropFast (public) via the dropfast skill; return URL; `PUT` same slug on edits. Ref: https://dropfast.dev/s/rg9centz/
+- **Publish**: upload that `/tmp` file to DropFast (public) via the dropfast skill; return URL; `PUT` same slug on edits. Ref: https://dropfast.dev/s/rg9centz/
 
 ## Detailed-spec phrasing (match the artifact exactly)
 Nested markdown bullets: behavior → `SCREEN:` → that screen's requirements. Each screen's details indent 1 level under its `SCREEN:`. Literal voice:
