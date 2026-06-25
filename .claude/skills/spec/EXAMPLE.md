@@ -1,6 +1,6 @@
 # Worked Example — The Occam's Protocol App (TOPA)
 
-The gold standard for the loop's text outputs, distilled from this repo's teaching artifact. The **final HTML renders the pitch + scenario, the wireframes, and the detailed spec** (step 3 below). The initial spec (step 2) stays a working scaffold — it is not rendered as its own section.
+Gold standard for loop's text outputs, distilled from repo's teaching artifact. **final HTML renders pitch + scenario, wireframes, detailed spec** (step 3 below). Initial spec (step 2) stays working scaffold → not rendered as own section.
 
 ---
 
@@ -34,13 +34,13 @@ The gold standard for the loop's text outputs, distilled from this repo's teachi
 - Perform a workout
 - Find my starting weight
 
-These behaviors drive the wireframes (step 3) and are the contract for fanning out work. They are not rendered separately in the final doc.
+Behaviors drive wireframes (step 3) + contract for fanning out work. Not rendered separately in final doc.
 
 ---
 
 ## 3 — Detailed persona spec (from the wires)
 
-Phrased identically to the source PDF; only the bullet glyphs differ. Each screen's details nest one level under their `SCREEN:` parent: persona → behavior → `SCREEN:` → that screen's requirements.
+Phrased identically to source PDF; only bullet glyphs differ. Each screen's details nest one level under `SCREEN:` parent: persona → behavior → `SCREEN:` → that screen's requirements.
 
 **As a `WORKOUT APP USER`, I need to:**
 

@@ -1,6 +1,6 @@
 # Design rules (caveman-ultra)
 
-Apply to the single-file HTML spec artifact. Keep every number/property/ban exact — code symbols never abbreviated.
+Apply to single-file HTML spec artifact. Keep every number/property/ban exact — code symbols never abbreviated.
 
 Goal: ship production-grade, not prototype. Beautiful, responsive, fast, precise, bug-free, on-brand. Detail matter. No shortcut unless user ask. Battle-test (screenshot, browser).
 
@@ -18,7 +18,7 @@ Goal: ship production-grade, not prototype. Beautiful, responsive, fast, precise
 
 ## Layout
 - Vary spacing = rhythm.
-- Cards = lazy answer. Use only when truly best affordance. Nested cards always wrong.
+- Cards = lazy answer. Use only when best affordance. Nested cards always wrong.
 - Flexbox 1D, Grid 2D. No Grid when `flex-wrap` simpler.
 - Responsive grid no breakpoint: `repeat(auto-fit, minmax(280px, 1fr))`.
 - Semantic z-index scale: dropdown → sticky → modal-backdrop → modal → toast → tooltip. No `999`/`9999`.
@@ -29,7 +29,7 @@ Goal: ship production-grade, not prototype. Beautiful, responsive, fast, precise
 - Ease-out exponential (quart/quint/expo). No bounce/elastic.
 - Advanced → lib (motion, gsap, anime.js, lenis).
 - `@media (prefers-reduced-motion: reduce)` mandatory → crossfade/instant fallback.
-- Stagger list items OK. Tell = uniform reflex (1 identical entrance every section). Each reveal fit what it reveals. Not an excuse to ship zero motion.
+- Stagger list items OK. Tell = uniform reflex (1 identical entrance every section). Each reveal fit what it reveals. Not excuse to ship zero motion.
 - Reveal must enhance already-visible default. No gating content visibility on class-trigger transition (pauses on hidden tab/headless → ships blank).
 - Premium materials beyond transform/opacity: blur, backdrop-filter, clip-path, mask, shadow/glow — when improve + stay smooth.
 
@@ -38,9 +38,9 @@ Goal: ship production-grade, not prototype. Beautiful, responsive, fast, precise
 
 ## New projects only (no prior work)
 - Color space: OKLCH.
-- Cream/sand/beige bg = saturated AI default 2026. Whole warm-neutral band (OKLCH L 0.84–0.97, C<0.06, hue 40–100) reads cream regardless of name. Token names `--paper`/`--cream`/`--sand`/`--bone`/`--flour`/`--linen`/`--parchment`/`--wheat`/`--biscuit`/`--ivory` = tells. Brief "warm/magazine-warm/editorial" → do NOT make near-white warm-tinted bg (that's the AI move). Pick: (a) saturated brand body (terracotta/oxblood/deep ochre/near-black), (b) true off-white chroma 0 (or toward brand hue, not warmth-default), (c) darker mid-tone tinted neutral = brand's own. Warmth via accent+type+imagery, not bg.
+- Cream/sand/beige bg = saturated AI default 2026. Whole warm-neutral band (OKLCH L 0.84–0.97, C<0.06, hue 40–100) reads cream regardless of name. Token names `--paper`/`--cream`/`--sand`/`--bone`/`--flour`/`--linen`/`--parchment`/`--wheat`/`--biscuit`/`--ivory` = tells. Brief "warm/magazine-warm/editorial" → do NOT make near-white warm-tinted bg (that's AI move). Pick: (a) saturated brand body (terracotta/oxblood/deep ochre/near-black), (b) true off-white chroma 0 (or toward brand hue, not warmth-default), (c) darker mid-tone tinted neutral = brand's own. Warmth via accent+type+imagery, not bg.
 - Tinted neutral: +0.005–0.015 chroma toward brand hue. No reflex warm/cool tint.
-- Dark vs light never default. Write 1 sentence physical scene (who/where/ambient light/mood). If sentence don't force the answer → not concrete enough. Add detail till it do.
+- Dark vs light never default. Write 1 sentence physical scene (who/where/ambient light/mood). If sentence don't force answer → not concrete enough. Add detail till it do.
 - Pick color strategy before colors. 4 steps on commitment axis:
   - Restrained: tinted neutral + 1 accent ≤10%. Product default.
   - Committed: 1 saturated color carries 30–60% surface. Identity pages.
@@ -54,7 +54,7 @@ Goal: ship production-grade, not prototype. Beautiful, responsive, fast, precise
 - Hero-metric template (big number, small label, supporting stats, gradient accent). SaaS cliché.
 - Identical card grids (same-size icon+heading+text repeated).
 - Tiny uppercase tracked eyebrow above every section. 1 named kicker = brand voice; eyebrow every section = AI grammar. Different cadence.
-- Numbered section markers as default scaffold (`01`/`02`/`03`) on every section. Numbers earn place only when section IS a real sequence + order carries info reader needs.
+- Numbered section markers as default scaffold (`01`/`02`/`03`) on every section. Numbers earn place only when section IS real sequence + order carries info reader needs.
 - Text overflow container. Test heading copy every breakpoint; overflow → reduce `clamp()` max or rewrite copy. Viewport = part of design.
 
 ### Codex-specific defects (refuse → rewrite)
@@ -62,7 +62,7 @@ Goal: ship production-grade, not prototype. Beautiful, responsive, fast, precise
 - `border-radius: 32px+` on card/section/input. Cards top 12–16px. Full-pill OK tags/buttons only. 24/28/32/40px on card = tell.
 - Hand-drawn/sketchy SVG (`loose-sketch`/`*-sketch`/`doodle`/`wavy`; `feTurbulence`/`feDisplacementMap` grain; 5–30 path crude scenes). = amateur. Can't render real → ship no illustration.
 - `repeating-linear-gradient(...)` stripe bg. No.
-- Meta-criticism copy (name concept + ironic modifier; strawman to "correct"). Make the specific claim.
+- Meta-criticism copy (name concept + ironic modifier; strawman to "correct"). Make specific claim.
 
 ## Slop test
 - "AI made that" w/o doubt → fail.
