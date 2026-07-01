@@ -9,6 +9,7 @@ Consume a `/spec` artifact (its `SCREEN:` list + wires + detailed spec) → emit
 
 - Design rules for the HTML (mandatory): [../spec/DESIGN.md](../spec/DESIGN.md)
 - Content gold standard: [EXAMPLE.md](EXAMPLE.md)
+- Reference output: https://dropfast.dev/s/2265uqt7/ (board for spec https://dropfast.dev/s/rg9centz/)
 
 ## Input
 A spec URL (DropFast) or the spec itself. Pull SCREENS straight from its `SCREEN:` headings; derive COMPONENTS from the wires; carry auth = Clerk from the spec's PRINCIPLES.
